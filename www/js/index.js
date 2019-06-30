@@ -115,7 +115,7 @@ function mapearLetras(){
                 if (event.keyCode == 8) {
                     x[i].value = '';
                 }else if(minhaletra == letraRepassada){
-                    x[i].value = tecla;
+                    x[i].value = minhaletra;
                 }
             }
         });
