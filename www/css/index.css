@@ -107,14 +107,14 @@ body{
 	padding: 10px;
 	justify-content: flex-start;
 	color: #fff;
-	background: #33333f;
+	background: #263238;
 	width: 100%;
 }
 .barra_titulo h1{
 	width: 100%;
 	text-transform: none;
 	text-align: center;
-	font-size: 16px;
+	font-size: 18px;
 }
 .conteudo, #resultado{
 	padding:0px;
@@ -127,6 +127,7 @@ body{
 #resultado{
 	padding: 10px;
 	height: 100%;
+    padding-bottom: 20px;
 }
 .caractere {
 	display: block;
@@ -179,7 +180,7 @@ button{
     font-family: sans-serif;
     font-weight: bold;
     text-align: center;
-    background: #33333f;
+    background: #ff6f00;
     text-transform: uppercase;
     position: fixed;
     left: 50%;

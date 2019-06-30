@@ -97,8 +97,34 @@ function verificar(){
     }
     if(fim==0){
         alert("Acertou!");
+        var url = window.location.href;
+        window.location = url;
     }
 }
 
 
-window.onload = converter();
+function mapearLetras(){
+    var letras = document.getElementsByClassName("input");
+    for (var i = 0; i < letras.length; i++) {
+        letras[i].addEventListener('keydown', function(event){
+            var x = document.getElementsByClassName("input");
+            var tecla = String.fromCharCode(event.keyCode);
+            var minhaletra = this.getAttribute("letra");
+            for (var i = 0; i < x.length; i++) {
+                var letraRepassada = x[i].getAttribute("letra");
+                if (event.keyCode == 8) {
+                    x[i].value = '';
+                }else if(minhaletra == letraRepassada){
+                    x[i].value = tecla;
+                }
+            }
+        });
+    }
+}
+
+function iniciar(){
+    converter();
+    mapearLetras();
+}
+
+window.onload = iniciar();
