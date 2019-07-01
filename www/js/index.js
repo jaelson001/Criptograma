@@ -18,10 +18,10 @@
  */
 
 
-
+var indiceAtual;
 var deslocamento = (Math.floor(Math.random()*100)%26)+1;
 var frases = ["mais vale um passaro na mao do que dois voando", "a vinganca e um prato que se come frio",
-                "o povo nao deve temer seu governo, o governo deve temer seu povo"];
+                "o povo nao deve temer seu governo, o governo deve temer seu povo", "ser ou nao ser? eis a questao"];
 
 function tamanhoDe(o){
     var contador = 0;
@@ -48,7 +48,7 @@ function cripto(c){
 }
 
 function converter(){
-    var indiceAtual = (Math.floor(Math.random()*10)%3);
+    indiceAtual = (Math.floor(Math.random()*10)%4);
     var texto = frases[indiceAtual];
     var palavra = texto.split(' ');
     for (var i = 0; i < palavra.length; i++) {
@@ -86,17 +86,19 @@ function converter(){
 function verificar(){
     var dom = document.getElementsByClassName('input');
     var fim = 0;
-    for(i=0;i<dom.lenght;i++){
+    alert(dom.lenght);
+    for(i = 0; i < dom.lenght; i++){
         var texto = dom[i].value.toUpperCase();
-        var res = dom[i].getAttribute("letra");
+        var res = dom[i].getAttribute("letra").toUpperCase();
         if(res != texto){
             alert("Jogo incorreto!");
             fim = 1;
             break;
         }
+        alert(texto + res);
     }
-    if(fim==0){
-        alert("Acertou!");
+    if(fim == 0){
+        alert("Acertou!\n" + frases[indiceAtual]);
         var url = window.location.href;
         window.location = url;
     }
@@ -115,7 +117,7 @@ function mapearLetras(){
                 if (event.keyCode == 8) {
                     x[i].value = '';
                 }else if(minhaletra == letraRepassada){
-                    x[i].value = minhaletra;
+                    x[i].value = tecla;
                 }
             }
         });
