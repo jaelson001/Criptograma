@@ -116,7 +116,7 @@ function mapearLetras(){
             for (var i = 0; i < x.length; i++) {
                 var letraRepassada = x[i].getAttribute("letra");
                 letraRepassada = letraRepassada.toUpperCase();
-                else if(letraRepassada == minhaletra){
+                if(letraRepassada == minhaletra){
                     x[i].value = tecla;
                 }
             }
