@@ -28,7 +28,7 @@ function tamanhoDe(o){
     for(x in o){
         contador++;
     }
-    return contador;
+    return contador - 3;
 }
 
 function cripto(c){
@@ -86,9 +86,14 @@ function converter(){
 function verificar(){
     var dom = document.getElementsByClassName("input");
     var fim = 0;
-    for(i = 0; i < dom.lenght; i++){
-        var texto = dom[i].value.toUpperCase();
-        var res = dom[i].getAttribute("letra").toUpperCase();
+    var comprimento = tamanhoDe(dom);
+    alert(comprimento);
+    for(i = 0; i < comprimento; i++){
+        var texto = dom[i].value;
+        texto = texto.toUpperCase();
+        var res = dom[i].getAttribute("letra");
+        res = res.toUpperCase();
+        console.log("Caractere:" + texto + "\nCorreto: " + res);
         if(res != texto){
             alert("Jogo incorreto!");
             fim = 1;
