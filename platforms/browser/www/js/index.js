@@ -16,40 +16,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    }
-};
 
 
+var indiceAtual;
 var deslocamento = (Math.floor(Math.random()*100)%26)+1;
+var frases = ["mais vale um passaro na mao do que dois voando", "a vinganca e um prato que se come frio",
+                "o povo nao deve temer seu governo, o governo deve temer seu povo", "ser ou nao ser? eis a questao"];
 
 function tamanhoDe(o){
     var contador = 0;
@@ -76,9 +48,9 @@ function cripto(c){
 }
 
 function converter(){
-    var texto = document.getElementById("texto").value;
+    indiceAtual = (Math.floor(Math.random()*10)%4);
+    var texto = frases[indiceAtual];
     var palavra = texto.split(' ');
-    document.getElementById("texto").value = '';
     for (var i = 0; i < palavra.length; i++) {
         var divPalavra = document.createElement("DIV");
         divPalavra.classList.add("palavra");
@@ -114,16 +86,47 @@ function converter(){
 function verificar(){
     var dom = document.getElementsByClassName('input');
     var fim = 0;
-    for(i=0;i<dom.lenght;i++){
+    alert(dom.lenght);
+    for(i = 0; i < dom.lenght; i++){
         var texto = dom[i].value.toUpperCase();
-        var res = dom[i].getAttribute("letra");
+        var res = dom[i].getAttribute("letra").toUpperCase();
         if(res != texto){
             alert("Jogo incorreto!");
             fim = 1;
             break;
         }
+        alert(texto + res);
     }
-    if(fim==0){
-        alert("Acertou!");
+    if(fim == 0){
+        alert("Acertou!\n" + frases[indiceAtual]);
+        var url = window.location.href;
+        window.location = url;
     }
 }
+
+
+function mapearLetras(){
+    var letras = document.getElementsByClassName("input");
+    for (var i = 0; i < letras.length; i++) {
+        letras[i].addEventListener('keydown', function(event){
+            var x = document.getElementsByClassName("input");
+            var tecla = String.fromCharCode(event.keyCode);
+            var minhaletra = this.getAttribute("letra");
+            for (var i = 0; i < x.length; i++) {
+                var letraRepassada = x[i].getAttribute("letra");
+                if (event.keyCode == 8) {
+                    x[i].value = '';
+                }else if(minhaletra == letraRepassada){
+                    x[i].value = tecla;
+                }
+            }
+        });
+    }
+}
+
+function iniciar(){
+    converter();
+    mapearLetras();
+}
+
+window.onload = iniciar();

@@ -24,17 +24,7 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    );
+    background-color:#ffffff;
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
@@ -44,20 +34,12 @@ body {
     text-transform:uppercase;
     width:100%;
 }
+div, body{
+	box-sizing: border-box;
+}
 
 /* Portrait layout (default) */
-.app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
-}
+
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
@@ -115,19 +97,47 @@ h1 {
 }
 
 body{
-    padding: 10px;
+    padding: 0px;
     margin: 0px;
     box-sizing: border-box;
     font-family: sans-serif;
 }
-.caractere{
-    display: block;
-    width: 20px;
-    float: left;
-    line-height: 20px;
-    text-align: center;
-    min-height: 10px;
-    text-transform: uppercase;
+.barra_titulo{
+	display: flex;
+	padding: 10px;
+	justify-content: flex-start;
+	color: #fff;
+	background: #263238;
+	width: 100%;
+}
+.barra_titulo h1{
+	width: 100%;
+	text-transform: none;
+	text-align: center;
+	font-size: 18px;
+}
+.conteudo, #resultado{
+	padding:0px;
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+}
+#resultado{
+	padding: 10px;
+	height: 100%;
+    padding-bottom: 20px;
+}
+.caractere {
+	display: block;
+	width: 20px;
+	float: left;
+	line-height: 20px;
+	text-align: center;
+	min-height: 10px;
+	text-transform: uppercase;
+	font-size: 18px;
 }
 .letra{
     width: 20px;
@@ -142,11 +152,18 @@ body{
     text-transform: uppercase;
     margin-bottom: 15px;
 }
+.input{
+	border-radius: 5px;
+    border:1px solid #33333f;
+}
+.input:focus{
+	box-shadow: 0px 0px 0px 3px #ff8000;
+}
 #texto{
     width: 90%;
     margin-bottom: 15px;
     border:none;
-    border-bottom:2px solid #4444cc;
+    border-bottom:2px solid #33333f;
     text-transform: uppercase;
     font-size: 14px;
     padding:10px 20px;
@@ -163,7 +180,7 @@ button{
     font-family: sans-serif;
     font-weight: bold;
     text-align: center;
-    background: #4444cc;
+    background: #ff6f00;
     text-transform: uppercase;
     position: fixed;
     left: 50%;
