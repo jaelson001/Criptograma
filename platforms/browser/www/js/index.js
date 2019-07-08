@@ -95,7 +95,6 @@ function verificar(){
             fim = 1;
             break;
         }
-        alert(texto + res);
     }
     if(fim == 0){
         alert("Acertou!\n" + frases[indiceAtual]);

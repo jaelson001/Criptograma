@@ -84,9 +84,8 @@ function converter(){
 }
 
 function verificar(){
-    var dom = document.getElementsByClassName('input');
+    var dom = document.getElementsByClassName("input");
     var fim = 0;
-    alert(dom.lenght);
     for(i = 0; i < dom.lenght; i++){
         var texto = dom[i].value.toUpperCase();
         var res = dom[i].getAttribute("letra").toUpperCase();
@@ -95,7 +94,6 @@ function verificar(){
             fim = 1;
             break;
         }
-        alert(texto + res);
     }
     if(fim == 0){
         alert("Acertou!\n" + frases[indiceAtual]);
