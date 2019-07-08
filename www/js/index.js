@@ -108,15 +108,15 @@ function verificar(){
 function mapearLetras(){
     var letras = document.getElementsByClassName("input");
     for (var i = 0; i < letras.length; i++) {
-        letras[i].addEventListener('keydown', function(event){
+        letras[i].addEventListener('focusout', function(event){
             var x = document.getElementsByClassName("input");
-            var tecla = String.fromCharCode(event.keyCode);
+            var tecla = this.value;
+            tecla = tecla.toUpperCase();
             var minhaletra = this.getAttribute("letra");
             for (var i = 0; i < x.length; i++) {
                 var letraRepassada = x[i].getAttribute("letra");
-                if (event.keyCode == 8) {
-                    x[i].value = '';
-                }else if(minhaletra == letraRepassada){
+                letraRepassada = letraRepassada.toUpperCase();
+                if(letraRepassada == tecla){
                     x[i].value = tecla;
                 }
             }
