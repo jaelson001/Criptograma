@@ -87,13 +87,11 @@ function verificar(){
     var dom = document.getElementsByClassName("input");
     var fim = 0;
     var comprimento = tamanhoDe(dom);
-    alert(comprimento);
     for(i = 0; i < comprimento; i++){
         var texto = dom[i].value;
         texto = texto.toUpperCase();
         var res = dom[i].getAttribute("letra");
         res = res.toUpperCase();
-        console.log("Caractere:" + texto + "\nCorreto: " + res);
         if(res != texto){
             alert("Jogo incorreto!");
             fim = 1;
