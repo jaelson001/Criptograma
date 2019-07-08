@@ -28,7 +28,7 @@ function tamanhoDe(o){
     for(x in o){
         contador++;
     }
-    return contador;
+    return contador - 3;
 }
 
 function cripto(c){
